@@ -3,7 +3,7 @@ const matter = require('gray-matter')
 const path = require('path')
 const PrebuildWebpackPlugin = require('prebuild-webpack-plugin')
 const { generateFrontmatterPath, extendFrontMatter } = require('./util')
-const babelPluginFrontmatter = require('./babelPlugin')
+// const babelPluginFrontmatter = require('./babelPlugin')
 const debug = require('debug')('next-mdx-enhanced')
 
 module.exports = (pluginOptions = {}) => (nextConfig = {}) => {
@@ -54,11 +54,13 @@ module.exports = (pluginOptions = {}) => (nextConfig = {}) => {
         ],
       })
 
+			/*/
       // Add babel plugin to rewrite front matter imports
       config.module.rules = dangerouslyInjectBabelPlugin(
         config.module.rules,
         babelPluginFrontmatter(options, pluginOptions)
       )
+			*/
 
       // Add webpack plugin that extracts front matter
       config.plugins.push(

@@ -134,6 +134,7 @@ async function processLayout(
 
 export * from '${normalizeToUnixPath(layoutPath)}'
 export default layout(${stringifyObject(mergedFrontMatter)})
+export const frontMatter = ${stringifyObject(mergedFrontMatter)}
 
 ${content}
 `
